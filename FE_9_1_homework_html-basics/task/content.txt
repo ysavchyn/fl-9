@@ -1,0 +1,92 @@
+HTML Elements
+
+Home
+Headers
+Table
+List
+Text formats
+Blockquotes
+
+Pay attention to h1 tag inside section element. Font-size for h1 is the same as font-size for h2, because we have to use only one h1 on the page, and it is commonly used inside header
+
+Header 2
+Header 3
+Header 4
+Header 5
+Header 6
+
+Table
+
+Header
+Header
+Header
+
+Strong
+CO2 
+Some link
+
+Italic
+Abbreviation
+Delete
+
+Underline 
+5^3=125
+Inserted
+
+Unordered List
+
+List item 1
+List item 2
+	Some nested list item 1
+List item 3
+
+Ordered List
+
+1. List item 1
+2. List item 2
+	A. Some nested list item 1
+3. List item 3
+
+Definition List
+defines terms 1
+description 1
+defines terms 2
+description 
+
+Details
+Some details element (open)
+Here are more details about the details.
+
+Some details element (close)
+Here are more details about the details.
+
+Text formats
+
+Article Text
+Article title
+Article description
+
+Preformatted Text
+
+Text
+  in a pre element
+    is displayed in a fixed-width
+font, and it preserves
+both           spaces and
+    line breaks
+
+Code
+
+.wrapper {
+display: flex;
+  vertical-align: middle;
+  justify-content: center;
+ }
+
+Blockquotes
+
+Let’s keep it simple. Italics are good to help set it off from the body text. Be sure to style the citation.
+"If you go back a few hundred years, what we take for granted today would seem like magic-being able to talk to people over long distances, to transmit images, flying, accessing vast amounts of data like an oracle. These are all things that would have been considered magic a few hundred years ago."            
+Elon Musk
+
+© Copyright Epam Systems
