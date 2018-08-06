@@ -1,0 +1,156 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto+Condensed");
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #EFEFEF; }
+  body div.main-wrapper {
+    margin: 0;
+    padding: 0 145px 0 145px;
+    display: flex;
+    flex-direction: column; }
+    body div.main-wrapper header {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+      flex-wrap: nowrap; }
+      body div.main-wrapper header div.logo img {
+        width: 100%;
+        height: auto; }
+      body div.main-wrapper header nav {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: row;
+        border-top: 1px solid #CFD8DC;
+        border-bottom: 1px solid #CFD8DC;
+        justify-content: space-around;
+        margin-bottom: 35px; }
+        body div.main-wrapper header nav a {
+          padding: 20px;
+          font-family: serif;
+          font-size: 20px;
+          text-transform: uppercase;
+          text-decoration: none;
+          color: #FC5830; }
+          body div.main-wrapper header nav a:hover {
+            font-weight: 600; }
+    body div.main-wrapper div.toolbar {
+      align-self: flex-end; }
+      body div.main-wrapper div.toolbar input {
+        border: 1px solid #FC5830;
+        font-family: serif;
+        margin-top: 20px;
+        padding: 10px 0 10px 20px;
+        font-size: 16px;
+        color: #FC5830;
+        background-color: #EFEFEF; }
+        body div.main-wrapper div.toolbar input::placeholder {
+          color: #FC5830; }
+        body div.main-wrapper div.toolbar input:focus {
+          color: #FC5830; }
+    body div.main-wrapper div.post-list {
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      width: 100%;
+      font-family: serif; }
+      body div.main-wrapper div.post-list article {
+        margin-bottom: 2%;
+        width: 46%;
+        flex: 1 auto;
+        padding: 10px;
+        background-color: #FFFFFF; }
+        body div.main-wrapper div.post-list article:nth-child(odd) {
+          margin-right: 3%; }
+        body div.main-wrapper div.post-list article img {
+          width: 100%;
+          height: auto; }
+        body div.main-wrapper div.post-list article div {
+          padding: 5px 10px; }
+          body div.main-wrapper div.post-list article div div.post-description {
+            color: #BDBDBD;
+            font-size: 12px; }
+          body div.main-wrapper div.post-list article div h3 {
+            margin: 0;
+            text-transform: uppercase;
+            border-top: 1px solid #CFD8DC;
+            color: #617D8A;
+            padding: 5px 0; }
+          body div.main-wrapper div.post-list article div p {
+            margin: 0;
+            line-height: 20px;
+            color: #757575; }
+    body div.main-wrapper section.about {
+      margin-top: 2%; }
+      body div.main-wrapper section.about div h1 {
+        font-family: serif;
+        text-transform: uppercase;
+        text-align: right;
+        color: #FC5830; }
+      body div.main-wrapper section.about div p {
+        font-family: serif;
+        line-height: 20px;
+        color: #757575; }
+      body div.main-wrapper section.about div img {
+        width: 100%;
+        height: auto; }
+    body div.main-wrapper section.contact-form h1 {
+      font-family: serif;
+      text-transform: uppercase;
+      color: #FC5830;
+      text-align: right;
+      margin: 0;
+      margin-top: 50px; }
+    body div.main-wrapper section.contact-form h4 {
+      font-family: serif;
+      text-transform: uppercase;
+      color: #FC5830;
+      text-align: right;
+      margin: 0;
+      margin-bottom: 15px; }
+    body div.main-wrapper section.contact-form form {
+      display: flex;
+      flex-direction: column; }
+      body div.main-wrapper section.contact-form form input {
+        background-color: #EFEFEF;
+        font-family: serif;
+        max-width: 100%;
+        padding: 10px 0 10px 20px;
+        font-size: 16px;
+        color: #757575;
+        border: 1px solid #CFD8DC; }
+        body div.main-wrapper section.contact-form form input::placeholder {
+          color: #757575; }
+      body div.main-wrapper section.contact-form form textarea {
+        background-color: #EFEFEF;
+        padding: 10px 0 10px 20px;
+        max-width: 100%;
+        font-size: 16px;
+        border: 1px solid #CFD8DC;
+        font-family: serif; }
+        body div.main-wrapper section.contact-form form textarea::placeholder {
+          font-size: 16px;
+          font-family: serif; }
+      body div.main-wrapper section.contact-form form input[type=button], body div.main-wrapper section.contact-form form input[type=submit] {
+        font-family: serif;
+        text-transform: uppercase;
+        font-size: 16px;
+        align-self: flex-end;
+        width: 200px;
+        background-color: #FC5830;
+        border: none;
+        color: white;
+        padding: 10px 32px;
+        text-decoration: none;
+        margin: 10px 2px;
+        cursor: pointer; }
+        body div.main-wrapper section.contact-form form input[type=button]:hover, body div.main-wrapper section.contact-form form input[type=submit]:hover {
+          background-color: black;
+          font-weight: 600; }
+    body div.main-wrapper footer {
+      font-family: serif;
+      color: #757575;
+      font-size: 12px; }
+
+/*# sourceMappingURL=style2.css.map */
