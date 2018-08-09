@@ -1,0 +1,257 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif; }
+
+ul {
+  list-style-type: none; }
+
+a {
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 14px; }
+  a:hover {
+    font-weight: bold; }
+
+html {
+  width: 100%;
+  height: 100%; }
+  html body {
+    width: inherit;
+    height: inherit; }
+    html body div.wrapper {
+      width: inherit;
+      height: inherit; }
+      html body div.wrapper header {
+        background-image: url(../img/apples.jpg);
+        height: inherit;
+        max-height: 740px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        flex-direction: column; }
+        html body div.wrapper header div.navbar-wrapper {
+          padding: 3% 6% 0 6%; }
+          html body div.wrapper header div.navbar-wrapper nav {
+            display: flex;
+            flex-direction: row; }
+            html body div.wrapper header div.navbar-wrapper nav div.brand-name {
+              flex: 95%; }
+              html body div.wrapper header div.navbar-wrapper nav div.brand-name a {
+                letter-spacing: .2rem; }
+            html body div.wrapper header div.navbar-wrapper nav div.navbar {
+              flex: 5%; }
+              html body div.wrapper header div.navbar-wrapper nav div.navbar ul {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-end; }
+                html body div.wrapper header div.navbar-wrapper nav div.navbar ul li:not(last-child) {
+                  margin-right: 30%; }
+        html body div.wrapper header div.title {
+          height: inherit;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center; }
+          html body div.wrapper header div.title h1 {
+            font-size: 3rem;
+            color: #FFFFFF;
+            font-weight: lighter;
+            letter-spacing: 0.75rem; }
+            html body div.wrapper header div.title h1 span {
+              font-size: 2em; }
+          html body div.wrapper header div.title p {
+            color: #FFFFFF;
+            font-size: 14px; }
+        html body div.wrapper header div.button {
+          display: flex;
+          justify-content: center;
+          margin-bottom: 10%; }
+          html body div.wrapper header div.button button {
+            width: 15%;
+            height: 5%;
+            font-size: 14px;
+            padding: 1% 3%;
+            color: #FFFFFF;
+            background-color: rgba(1, 1, 1, 0.3);
+            border: 2px solid #FFFFFF; }
+            html body div.wrapper header div.button button:hover {
+              cursor: pointer;
+              background-color: rgba(1, 1, 1, 0.6); }
+      html body div.wrapper div.description {
+        display: flex;
+        flex-direction: row; }
+        html body div.wrapper div.description div.leftp {
+          flex: 44%;
+          padding: 10% 6%; }
+          html body div.wrapper div.description div.leftp p {
+            font-size: 20px; }
+            html body div.wrapper div.description div.leftp p span {
+              font-weight: bold; }
+        html body div.wrapper div.description div.rightp {
+          flex: 56%;
+          padding: 10% 6%; }
+          html body div.wrapper div.description div.rightp p {
+            font-size: 14px; }
+      html body div.wrapper div.featured-articles {
+        background-color: #F3F3F3;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0 6%;
+        padding-bottom: 5%; }
+        html body div.wrapper div.featured-articles h2 {
+          margin-top: 10%;
+          margin-bottom: 5%;
+          font-size: 20px;
+          font-weight: lighter; }
+          html body div.wrapper div.featured-articles h2 span {
+            font-weight: bold; }
+        html body div.wrapper div.featured-articles div.article {
+          display: flex;
+          flex-direction: row;
+          align-items: center; }
+          html body div.wrapper div.featured-articles div.article div.image {
+            flex: 61%; }
+            html body div.wrapper div.featured-articles div.article div.image img {
+              border: 2px solid #FFFFFF;
+              width: 100%;
+              height: auto; }
+            html body div.wrapper div.featured-articles div.article div.image button {
+              position: relative;
+              top: 4.7vw;
+              left: 45vw;
+              font-size: 14px;
+              padding: 1% 2%;
+              color: #FFFFFF;
+              background-color: rgba(1, 1, 1, 0.3);
+              border: 2px solid #FFFFFF; }
+              html body div.wrapper div.featured-articles div.article div.image button:hover {
+                cursor: pointer;
+                background-color: rgba(1, 1, 1, 0.6); }
+            html body div.wrapper div.featured-articles div.article div.image p {
+              color: #FFFFFF;
+              position: relative;
+              bottom: 4vw;
+              left: 2vw; }
+              html body div.wrapper div.featured-articles div.article div.image p span {
+                font-weight: bold; }
+          html body div.wrapper div.featured-articles div.article div.article-description {
+            flex: 39%; }
+            html body div.wrapper div.featured-articles div.article div.article-description:nth-child(even) {
+              padding-left: 2%; }
+            html body div.wrapper div.featured-articles div.article div.article-description:nth-child(odd) {
+              padding-right: 2%; }
+            html body div.wrapper div.featured-articles div.article div.article-description p {
+              font-size: 14px;
+              text-align: center; }
+        html body div.wrapper div.featured-articles div.subscribe {
+          width: 100%;
+          padding: 6% 3%;
+          background-color: #FFFFFF;
+          display: flex;
+          flex-direction: row;
+          align-items: center; }
+          html body div.wrapper div.featured-articles div.subscribe h2 {
+            margin: 0;
+            flex: 30%;
+            font-size: 20px;
+            text-align: center; }
+            html body div.wrapper div.featured-articles div.subscribe h2 span {
+              font-weight: bold; }
+          html body div.wrapper div.featured-articles div.subscribe form {
+            flex: 70%;
+            display: flex;
+            flex-direction: row;
+            height: 4vw; }
+            html body div.wrapper div.featured-articles div.subscribe form input {
+              flex: 90%;
+              background-color: #F3F3F3;
+              border: 2px solid #9E9E9E;
+              border-right: none; }
+              html body div.wrapper div.featured-articles div.subscribe form input::placeholder {
+                padding-left: 3%;
+                color: #000000; }
+            html body div.wrapper div.featured-articles div.subscribe form button {
+              padding: 1vh;
+              border: 2px solid #000000;
+              background-color: #000000;
+              color: #FFFFFF;
+              flex: 10%; }
+      html body div.wrapper footer {
+        display: flex;
+        flex-direction: column; }
+        html body div.wrapper footer div.footer-wrapper {
+          background-color: #FFFFFF;
+          display: flex;
+          flex-direction: row;
+          margin-top: 5%;
+          padding: 10% 6%; }
+          html body div.wrapper footer div.footer-wrapper div.footer-column {
+            padding: 0 2%;
+            flex: 24%;
+            color: #9E9E9E; }
+            html body div.wrapper footer div.footer-wrapper div.footer-column:nth-child(1) {
+              padding-left: 0; }
+            html body div.wrapper footer div.footer-wrapper div.footer-column:nth-child(2) {
+              font-style: italic; }
+            html body div.wrapper footer div.footer-wrapper div.footer-column:nth-child(3) {
+              padding-right: 7%;
+              line-height: 1.5em;
+              text-align: justify; }
+            html body div.wrapper footer div.footer-wrapper div.footer-column:nth-child(4) {
+              padding-right: 0;
+              flex: 28%; }
+            html body div.wrapper footer div.footer-wrapper div.footer-column h3 {
+              font-style: normal;
+              color: #000000;
+              margin-bottom: 5%; }
+            html body div.wrapper footer div.footer-wrapper div.footer-column p {
+              font-size: 14px; }
+            html body div.wrapper footer div.footer-wrapper div.footer-column span {
+              font-size: 14px;
+              color: #E8E8E8; }
+            html body div.wrapper footer div.footer-wrapper div.footer-column div {
+              margin-top: 2%;
+              display: flex;
+              flex-direction: row; }
+              html body div.wrapper footer div.footer-wrapper div.footer-column div input {
+                flex: 90%;
+                background-color: #F3F3F3;
+                border: 2px solid #9E9E9E;
+                border-right: none; }
+                html body div.wrapper footer div.footer-wrapper div.footer-column div input::placeholder {
+                  padding-left: 3%;
+                  color: #000000; }
+              html body div.wrapper footer div.footer-wrapper div.footer-column div button {
+                flex: 10%;
+                padding: 1vh;
+                border: 2px solid #000000;
+                background-color: #000000;
+                color: #FFFFFF;
+                flex: 10%; }
+        html body div.wrapper footer div.navbar-wrapper {
+          background-color: #FFFFFF;
+          padding: 3% 6% 3% 6%; }
+          html body div.wrapper footer div.navbar-wrapper nav {
+            display: flex;
+            flex-direction: row;
+            border-top: 1px solid #E8E8E8;
+            padding-top: 1%; }
+            html body div.wrapper footer div.navbar-wrapper nav div.brand-name {
+              flex: 95%; }
+              html body div.wrapper footer div.navbar-wrapper nav div.brand-name a {
+                color: #9E9E9E; }
+            html body div.wrapper footer div.navbar-wrapper nav div.navbar {
+              flex: 5%; }
+              html body div.wrapper footer div.navbar-wrapper nav div.navbar ul {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-end; }
+                html body div.wrapper footer div.navbar-wrapper nav div.navbar ul li:not(last-child) {
+                  color: #000000;
+                  margin-right: 30%; }
+                  html body div.wrapper footer div.navbar-wrapper nav div.navbar ul li:not(last-child) a {
+                    color: #000000; }
