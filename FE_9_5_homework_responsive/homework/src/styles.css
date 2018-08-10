@@ -140,11 +140,9 @@ article {
         display: flex;
     }
     article:nth-child(odd) {
-
         flex-direction: row;
     }
     article:nth-child(even) {
-
         flex-direction: row-reverse;
     }
     article div {
