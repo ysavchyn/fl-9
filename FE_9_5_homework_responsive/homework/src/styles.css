@@ -1,0 +1,158 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    padding: 2.5%;
+}
+
+li:nth-child(1) a {
+    color: #54597d;
+}
+
+a {
+    text-decoration: none;
+    color: #5D5D5D;
+}
+
+a:hover {
+    color: #54597d;
+}
+
+a:active {
+    color: #54597d;
+}
+
+main {
+    padding: 0 10% 10% 10%;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+.main-title {
+    padding: 20% 0;
+}
+
+h1 {
+    font-size: 2.5em;
+    text-align: center;
+    font-weight: 900;
+}
+
+span {
+    font-style: italic;
+}
+
+h2 {
+    font-size: 2em;
+    font-weight: 900;
+}
+
+p {
+    text-align: justify;
+    font-size: 1em;
+    color: #5D5D5D;
+}
+
+article {
+    margin-bottom: 10%;
+}
+
+@media screen and (max-width: 575px) {
+    body {
+        background-color: #fff;
+    }
+    li {
+        border-bottom: 1px solid #DDDDDD;
+    }
+    li:nth-child(1) a {
+        font-weight: 900;
+    }
+    h2 {
+        color: #484747;
+    }
+    p {
+        padding: 15% 0;
+    }
+    input {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+        background-color: #73BCF9;
+        border: none;
+        font-size: 16px;
+        box-shadow: 10px 10px 54px -9px rgba(0, 0, 0, 0.75);
+        color: #FFFFFF;
+    }
+}
+
+@media screen and (min-width: 576px) {
+    body {
+        background-color: #0B1222;
+    }
+    li {
+        display: inline-block;
+    }
+    p {
+        padding: 5% 0;
+    }
+    h1,
+    h2 {
+        color: #E5E5E5;
+    }
+    h2 {
+        background: -webkit-linear-gradient(left, #eee, #333);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    input {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 576px) and (max-width: 991px) {
+    ul {
+        text-align: center;
+    }
+}
+
+@media screen and (min-width: 991px) {
+    ul {
+        text-align: right;
+    }
+    img {
+        margin-bottom: 0;
+    }
+    article {
+        display: flex;
+    }
+    article:nth-child(odd) {
+
+        flex-direction: row;
+    }
+    article:nth-child(even) {
+
+        flex-direction: row-reverse;
+    }
+    article div {
+        flex: 50%;
+    }
+    .image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
