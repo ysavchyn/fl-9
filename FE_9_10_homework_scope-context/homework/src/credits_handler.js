@@ -16,6 +16,7 @@ function userCard(index) {
             operationTime: new Date().toLocaleString()
         });
     }
+    
     return {
         getCardOptions: function () {
             return {
@@ -51,11 +52,13 @@ function userCard(index) {
         }
     }
 }
+
 class UserAccount {
     constructor() {
         this.name = name;
         this.cards = [];
     }
+    
     addCard() {
         if (this.cards.length <= cardsCount) {
             this.cards.push(userCard(this.cards.length + 1));
@@ -63,6 +66,7 @@ class UserAccount {
             console.log('User card count should not be > 3.');
         }
     }
+    
     getCardByKey(key) {
         return this.cards[key - 1];
     }
