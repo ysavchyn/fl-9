@@ -1,0 +1,65 @@
+@import "_variables";
+@import "_borders";
+@import "_bg-colors";
+
+body {
+    font-size: 13px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #colors[blue];
+}
+
+@media @mobile, @mobile-extra-small {
+    .navbar-light .navbar-nav {
+        & .active > .nav-link {
+            color: #colors[white];
+            background-color: #colors[blue];
+        }
+        & .nav-link {
+            color: #colors[grey];
+        }
+    }
+    .navbar-collapse {
+        margin-top: 1rem;
+    }
+}
+
+@media @mobile {
+    .container {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+@media @tablet, @desktop {
+    .navbar {
+        padding: 0;
+    }
+    .navbar-light .navbar-nav {
+        & .active > .nav-link {
+            color: #colors[white];
+            background-color: #colors[blue];
+        }
+        & .nav-link {
+            color: #colors[grey];
+        }
+    }
+    .nav-link {
+        padding: .8rem 1rem;
+    }
+    .navbar-expand-md .navbar-nav .nav-link {
+        padding-right: 1rem;
+        padding-left: 1rem;
+    }
+}
+
+.img-description {
+    padding: .5rem;
+}
+
+.page-header {
+    padding-bottom: .1rem;
+    margin: 1.5rem 0 1.2rem;
+    border-bottom: 1px solid #colors[blue];
+}
