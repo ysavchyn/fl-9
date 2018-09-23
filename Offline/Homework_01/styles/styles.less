@@ -1,65 +1,50 @@
 @import "_variables";
-@import "_borders";
-@import "_bg-colors";
 
 body {
     font-size: 13px;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    color: #colors[blue];
+    color: @blueColor;
 }
 
-@media @mobile, @mobile-extra-small {
-    .navbar-light .navbar-nav {
-        & .active > .nav-link {
-            color: #colors[white];
-            background-color: #colors[blue];
-        }
-        & .nav-link {
-            color: #colors[grey];
-        }
+.navbar-light .navbar-nav .nav-link {
+    color: @greyColor;
+    padding: .8rem 1rem;
+}
+
+.bg {
+    &-red {
+        background-color: @redColor;
     }
-    .navbar-collapse {
-        margin-top: 1rem;
+    &-blue {
+        background-color: @blueColor;
+    }
+    &-orange {
+        background-color: @orangeColor;
+    }
+    &-green {
+        background-color: @greenColor;
+    }
+    &-grey {
+        background-color: @greyColor;
     }
 }
 
-@media @mobile {
-    .container {
-        padding-left: 0;
-        padding-right: 0;
+.border {
+    &-red {
+        border: 1px solid @redColor;
     }
-}
-
-@media @tablet, @desktop {
-    .navbar {
-        padding: 0;
-    }
-    .navbar-light .navbar-nav {
-        & .active > .nav-link {
-            color: #colors[white];
-            background-color: #colors[blue];
-        }
-        & .nav-link {
-            color: #colors[grey];
+    &-blue {
+        border: 1px solid @blueColor;
+        &-bottom {
+            border-bottom: 1px solid @blueColor;
         }
     }
-    .nav-link {
-        padding: .8rem 1rem;
+    &-orange {
+        border: 1px solid @orangeColor;
     }
-    .navbar-expand-md .navbar-nav .nav-link {
-        padding-right: 1rem;
-        padding-left: 1rem;
+    &-green {
+        border: 1px solid @greenColor;
     }
-}
-
-.img-description {
-    padding: .5rem;
-}
-
-.page-header {
-    padding-bottom: .1rem;
-    margin: 1.5rem 0 1.2rem;
-    border-bottom: 1px solid #colors[blue];
 }
