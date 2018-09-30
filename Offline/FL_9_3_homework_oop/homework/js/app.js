@@ -81,6 +81,8 @@ function Product(productArgsObj) {
             _log.push(`${getDate()} --> ${_name} was removed from ${_shoppingCartInstance.getCartName()}.`);
             _shoppingCartInstance = {};
             _dateOfAddingToCart = '';
+        } else {
+            console.error(`The ${_name} isn't in the cart.`);
         }
         return this;
     };
@@ -318,7 +320,8 @@ johnShopCart2
 //Remove products
 johnShopCart2
     .removeProduct(samsungPhone2)
-    .removeProduct(xiaomiPhone1);
+    .removeProduct(xiaomiPhone1)
+    .removeProduct(xiaomiPhone1); //error --> nothing to delete
 
 //Set price
 xiaomiPhone1.setPrice(180); //error --> lower new price
