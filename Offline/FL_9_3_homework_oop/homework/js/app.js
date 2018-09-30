@@ -59,20 +59,26 @@ function Product(productArgsObj) {
     };
 
     this.setPrice = function (newPrice) {
-        if (newPrice > _price) {
-            _log.push(`${getDate()} --> The price was changed from ${_price} to ${newPrice}.`);
-            _price = newPrice;
+        if (checkedNumber(newPrice)) {
+            if (newPrice > _price) {
+                _log.push(`${getDate()} --> The price was changed from ${_price} to ${newPrice}.`);
+                _price = newPrice;
+            } else {
+                _log.push(`${getDate()} --> There was an attempt to change the price from ${_price} to ${newPrice}.`);
+                console.error('Price can\'t be set smaller or equals than product costs.');
+            }
         } else {
-            _log.push(`${getDate()} --> There was an attempt to change the price from ${_price} to ${newPrice}.`);
-            console.error('Price can\'t be set smaller than product costs.');
+            console.error('New price format is invalid. (Number only)');
         }
         return this;
     };
 
     this.add = function (shoppingCartInstance) {
-        _shoppingCartInstance = shoppingCartInstance;
-        _dateOfAddingToCart = getDate();
-        _log.push(`${_dateOfAddingToCart} --> ${_name} was added to ${_shoppingCartInstance.getCartName()}.`);
+        if (shoppingCartInstance instanceof ShoppingCart) {
+            _shoppingCartInstance = shoppingCartInstance;
+            _dateOfAddingToCart = getDate();
+            _log.push(`${_dateOfAddingToCart} --> ${_name} was added to ${_shoppingCartInstance.getCartName()}.`);
+        }
         return this;
     };
 
@@ -81,8 +87,6 @@ function Product(productArgsObj) {
             _log.push(`${getDate()} --> ${_name} was removed from ${_shoppingCartInstance.getCartName()}.`);
             _shoppingCartInstance = {};
             _dateOfAddingToCart = '';
-        } else {
-            console.error(`The ${_name} isn't in the cart.`);
         }
         return this;
     };
@@ -150,9 +154,13 @@ function ShoppingCart(cartArgsObj) {
 
     this.removeProduct = function (productInstance) {
         if (productInstance instanceof Product) {
-            productInstance.removeProduct();
-            _listOfProducts = _listOfProducts.filter(item => item !== productInstance);
-            _log.push(`${getDate()} --> ${productInstance.getName()} was removed from ${_name}.`);
+            if (_listOfProducts.includes(productInstance)) {
+                productInstance.removeProduct();
+                _listOfProducts = _listOfProducts.filter(item => item !== productInstance);
+                _log.push(`${getDate()} --> ${productInstance.getName()} was removed from ${_name}.`);
+            } else {
+                console.error(`${_name} doesn't include the ${productInstance.getName()}`);
+            }
         } else {
             console.error('The input object isn\'t an instance of Product.');
         }
@@ -215,7 +223,7 @@ function ShoppingCart(cartArgsObj) {
     return this;
 }
 
-//DEMO
+//DEMO -->
 
 //Creation of carts
 const errorCart = new ShoppingCart({
@@ -319,12 +327,14 @@ johnShopCart2
 
 //Remove products
 johnShopCart2
+    .removeProduct(samsungPhone1) // error --> delete Julia's phone from JohnCart
     .removeProduct(samsungPhone2)
     .removeProduct(xiaomiPhone1)
     .removeProduct(xiaomiPhone1); //error --> nothing to delete
 
 //Set price
 xiaomiPhone1.setPrice(180); //error --> lower new price
+xiaomiPhone1.setPrice('222'); //error --> not a number
 xiaomiPhone1.setPrice(250);
 
 //Get new price
