@@ -132,14 +132,12 @@ function ShoppingCart(cartArgsObj) {
                     }
                 } else {
                     let minPriceProduct = _listOfProducts.reduce(function (p, c) {
-                            return p.getPrice() < c.getPrice() ? p : c;
-                        }),
-                        minPriceProductPosition = _listOfProducts.indexOf(minPriceProduct);
-                    _listOfProducts.splice(minPriceProductPosition, 1);
+                        return p.getPrice() < c.getPrice() ? p : c;
+                    });
                     minPriceProduct.getShoppingCartInstance().removeProduct(minPriceProduct);
                 }
-                _listOfProducts.push(productInstance);
                 productInstance.add(this);
+                _listOfProducts.push(productInstance);
                 _log.push(`${getDate()} --> ${productInstance.getName()} was added to ${_name}.`);
             } else {
                 console.error(`The ${productInstance.getName()} has already been added to the shopping cart.`);
