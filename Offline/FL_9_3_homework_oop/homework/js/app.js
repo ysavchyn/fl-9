@@ -17,18 +17,15 @@ function getDate() {
 function Product(productArgsObj) {
 
     if (!checkedString(productArgsObj.name)) {
-        console.error('Name format is invalid. (String only)');
-        return;
+        throw 'Name format is invalid. (String only)';
     }
 
     if (!checkedObject(productArgsObj.description)) {
-        console.error('Description format is invalid. (Object only)');
-        return;
+        throw 'Description format is invalid. (Object only)';
     }
 
     if (!checkedNumber(productArgsObj.price)) {
-        console.error('Price format is invalid. (Number only)');
-        return;
+        throw 'Price format is invalid. (Number only)';
     }
 
     let _name = productArgsObj.name,
@@ -65,10 +62,10 @@ function Product(productArgsObj) {
                 _price = newPrice;
             } else {
                 _log.push(`${getDate()} --> There was an attempt to change the price from ${_price} to ${newPrice}.`);
-                console.error('Price can\'t be set smaller or equals than product costs.');
+                throw 'Price can\'t be set smaller or equals than product costs.';
             }
         } else {
-            console.error('New price format is invalid. (Number only)');
+            throw 'New price format is invalid. (Number only)';
         }
         return this;
     };
@@ -95,7 +92,7 @@ function Product(productArgsObj) {
         if (_log.length > 0) {
             return _log;
         } else {
-            console.error('Product log is empty.');
+            throw 'Product log is empty.';
         }
     };
     return this;
@@ -109,18 +106,15 @@ function ShoppingCart(cartArgsObj) {
         _log = [];
 
     if (!checkedString(cartArgsObj.name)) {
-        console.error('Name field format is invalid. (String only)');
-        return;
+        throw 'Name field format is invalid. (String only)';
     }
 
     if (!checkedString(cartArgsObj.owner)) {
-        console.error('Owner field format is invalid. (String only)');
-        return;
+        throw 'Owner field format is invalid. (String only)';
     }
 
     if (!checkedNumber(cartArgsObj.maxSize)) {
-        console.error('MaxSize field format is invalid. (Number only)');
-        return;
+        throw 'MaxSize field format is invalid. (Number only)';
     }
 
     this.addNewProduct = function (productInstance) {
@@ -140,12 +134,12 @@ function ShoppingCart(cartArgsObj) {
                 _listOfProducts.push(productInstance);
                 _log.push(`${getDate()} --> ${productInstance.getName()} was added to ${_name}.`);
             } else {
-                console.error(`The ${productInstance.getName()} has already been added to the shopping cart.`);
                 _log.push(`${_owner} tried to put the ${productInstance
                     .getName()} into the ${_name} two times. Alcoholic.`);
+                throw `The ${productInstance.getName()} has already been added to the shopping cart.`;
             }
         } else {
-            console.error('The input object isn\'t an instance of Product.');
+            throw 'The input object isn\'t an instance of Product.';
         }
         return this;
     };
@@ -157,17 +151,17 @@ function ShoppingCart(cartArgsObj) {
                 _listOfProducts = _listOfProducts.filter(item => item !== productInstance);
                 _log.push(`${getDate()} --> ${productInstance.getName()} was removed from ${_name}.`);
             } else {
-                console.error(`${_name} doesn't include the ${productInstance.getName()}`);
+                throw `${_name} doesn't include the ${productInstance.getName()}`;
             }
         } else {
-            console.error('The input object isn\'t an instance of Product.');
+            throw 'The input object isn\'t an instance of Product.';
         }
         return this;
     };
 
     this.getAveragePrice = function () {
         if (_listOfProducts.length === 0) {
-            console.error(`The ${_name} is empty.`);
+            throw `The ${_name} is empty.`;
         } else {
             return this.getTotalPrice() / _listOfProducts.length;
         }
@@ -189,15 +183,14 @@ function ShoppingCart(cartArgsObj) {
             }
             return formattedListArray;
         } else {
-            console.error('The list of products is empty.');
+            throw 'The list of products is empty.';
         }
     };
 
     this.getTotalPrice = function () {
         switch (_listOfProducts.length) {
             case 0:
-                console.error(`The ${_name} is empty.`);
-                return;
+                throw `The ${_name} is empty.`;
             case 1:
                 return _listOfProducts[0].getPrice();
             default:
@@ -209,7 +202,7 @@ function ShoppingCart(cartArgsObj) {
         if (_log.length > 0) {
             return _log;
         } else {
-            console.error('Cart log is empty.');
+            throw 'Cart log is empty.';
         }
     };
 
@@ -221,135 +214,138 @@ function ShoppingCart(cartArgsObj) {
     return this;
 }
 
-//DEMO -->
+//DEMO --> All errors are commented. Uncomment to catch errors.
 
-//Creation of carts
-const errorCart = new ShoppingCart({
-    name: 5,
-    owner: 555,
-    maxSize: 'ErrorSize'
-}); //error --> creation error
+try {
+    // --> Creation of carts
+//    const errorCart = new ShoppingCart({
+//        name: 5,
+//        owner: 555,
+//        maxSize: 'ErrorSize'
+//    }); //error --> creation error
+//
 
-console.log(errorCart);
+    const juliaShopCart1 = new ShoppingCart({
+        name: 'JuliaCart',
+        owner: 'Julia',
+        maxSize: 3
+    });
 
-const juliaShopCart1 = new ShoppingCart({
-    name: 'JuliaCart',
-    owner: 'Julia',
-    maxSize: 3
-});
+    const johnShopCart2 = new ShoppingCart({
+        name: 'JohnCart',
+        owner: 'John',
+        maxSize: 3
+    });
 
-const johnShopCart2 = new ShoppingCart({
-    name: 'JohnCart',
-    owner: 'John',
-    maxSize: 3
-});
+    //Creation of products
+//    const errorProduct = new Product({
+//        name: true,
+//        description: 'Wrong description',
+//        price: '222'
+//    }); //error --> creation error
 
-//Creation of products
-const errorProduct = new Product({
-    name: true,
-    description: 'Wrong description',
-    price: '222'
-}); //error --> creation error
+    const xiaomiPhone1 = new Product({
+        name: 'Redmi Note 5',
+        description: {
+            color: 'Black',
+            size: '6 inches',
+            os: 'Android 8.1'
+        },
+        price: 200
+    });
 
-console.log(errorProduct);
+    const xiaomiPhone2 = new Product({
+        name: 'Redmi Note 5',
+        description: {
+            color: 'Red',
+            size: '6 inches',
+            os: 'Android 8.1'
+        },
+        price: 200
+    });
 
-const xiaomiPhone1 = new Product({
-    name: 'Redmi Note 5',
-    description: {
-        color: 'Black',
-        size: '6 inches',
-        os: 'Android 8.1'
-    },
-    price: 200
-});
+    const samsungPhone1 = new Product({
+        name: 'Samsung S9+',
+        description: {
+            color: 'Coral Blue',
+            size: '6.2 inches',
+            os: 'Android 8.0'
+        },
+        price: 710
+    });
 
-const xiaomiPhone2 = new Product({
-    name: 'Redmi Note 5',
-    description: {
-        color: 'Red',
-        size: '6 inches',
-        os: 'Android 8.1'
-    },
-    price: 200
-});
+    const samsungPhone2 = new Product({
+        name: 'Samsung S9+',
+        description: {
+            color: 'Black',
+            size: '6.2 inches',
+            os: 'Android 8.0'
+        },
+        price: 710
+    });
 
-const samsungPhone1 = new Product({
-    name: 'Samsung S9+',
-    description: {
-        color: 'Coral Blue',
-        size: '6.2 inches',
-        os: 'Android 8.0'
-    },
-    price: 710
-});
+    const iPhone = new Product({
+        name: 'iPhone XS Max',
+        description: {
+            color: 'Silver',
+            size: '6.5 inches',
+            os: 'iOS 12'
+        },
+        price: 1450
+    });
 
-const samsungPhone2 = new Product({
-    name: 'Samsung S9+',
-    description: {
-        color: 'Black',
-        size: '6.2 inches',
-        os: 'Android 8.0'
-    },
-    price: 710
-});
 
-const iPhone = new Product({
-    name: 'iPhone XS Max',
-    description: {
-        color: 'Silver',
-        size: '6.5 inches',
-        os: 'iOS 12'
-    },
-    price: 1450
-});
+//    console.table(juliaShopCart1.getFormattedListOfProducts()); //error --> empty formatted list
 
-//Empty Formatted
-console.table(juliaShopCart1.getFormattedListOfProducts());
+    //Add products
+    juliaShopCart1
+        .addNewProduct(xiaomiPhone1)
+        .addNewProduct(xiaomiPhone2)
+        .addNewProduct(samsungPhone1)
+        .addNewProduct(samsungPhone2);
 
-console.info('1. JuliaCart || 2. JohnCart');
+//    juliaShopCart1.addNewProduct('Instance error.'); //error --> instance error
 
-//Add products
-juliaShopCart1
-    .addNewProduct(xiaomiPhone1)
-    .addNewProduct(xiaomiPhone2)
-    .addNewProduct(samsungPhone1)
-    .addNewProduct(samsungPhone2)
-    .addNewProduct('Instance error.'); //error --> instance error
+    juliaShopCart1.addNewProduct(iPhone);
 
-juliaShopCart1.addNewProduct(iPhone);
+    johnShopCart2
+        .addNewProduct(samsungPhone2)
+        .addNewProduct(xiaomiPhone1);
 
-johnShopCart2
-    .addNewProduct(samsungPhone2)
-    .addNewProduct(xiaomiPhone1)
-    .addNewProduct(xiaomiPhone1); //error --> same product has been put twice
+//    johnShopCart2.addNewProduct(xiaomiPhone1); //error --> same product has been put twice
 
-//Remove products
-johnShopCart2
-    .removeProduct(samsungPhone1) // error --> delete Julia's phone from JohnCart
-    .removeProduct(samsungPhone2)
-    .removeProduct(xiaomiPhone1)
-    .removeProduct(xiaomiPhone1); //error --> nothing to delete
+    //Remove products
+//    johnShopCart2.removeProduct(samsungPhone1); // error --> delete Julia's phone from JohnCart
 
-//Set price
-xiaomiPhone1.setPrice(180); //error --> lower new price
-xiaomiPhone1.setPrice('222'); //error --> not a number
-xiaomiPhone1.setPrice(250);
+    johnShopCart2
+        .removeProduct(samsungPhone2)
+        .removeProduct(xiaomiPhone1);
 
-//Get new price
-console.log(xiaomiPhone1.getPrice());
+//    johnShopCart2.removeProduct(xiaomiPhone1); //error --> nothing to delete
 
-//AveragePrice
-console.log(juliaShopCart1.getAveragePrice());
-console.log(johnShopCart2.getAveragePrice()); //error --> empty cart
+    //Set price
+//    xiaomiPhone1.setPrice(180); //error --> lower new price
+//    xiaomiPhone1.setPrice('222'); //error --> not a number
+    xiaomiPhone1.setPrice(250);
 
-//TotalPrice
-console.log(juliaShopCart1.getTotalPrice());
-console.log(johnShopCart2.getTotalPrice()); //error --> empty cart
+    //Get new price
+    console.log(`xiaomiPhone1 new price: ${xiaomiPhone1.getPrice()}`);
 
-//Formatted
-console.table(juliaShopCart1.getFormattedListOfProducts());
-console.table(johnShopCart2.getFormattedListOfProducts()); //error --> empty cart
+    //AveragePrice
+    console.log(`juliaShopCart1 average price: ${juliaShopCart1.getAveragePrice()}`);
+//    console.log(`johnShopCart2 average price: ${johnShopCart2.getAveragePrice()}`); //error --> empty cart
 
-//History
-console.table(juliaShopCart1.getHistory());
-console.table(johnShopCart2.getHistory());
+    //TotalPrice
+    console.log(`juliaShopCart1 total price: ${juliaShopCart1.getTotalPrice()}`);
+//    console.log(`johnShopCart2 total price: ${johnShopCart2.getTotalPrice()}`); //error --> empty cart
+
+    //Formatted
+    console.table(juliaShopCart1.getFormattedListOfProducts());
+//    console.table(johnShopCart2.getFormattedListOfProducts()); //error --> empty cart
+
+    //History
+    console.table(juliaShopCart1.getHistory());
+    console.table(johnShopCart2.getHistory());
+} catch (e) {
+    console.error(e);
+}
