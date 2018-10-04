@@ -1,11 +1,13 @@
 function assign(target) {
+    
     if (target === null && target === undefined) {
         throw 'Cannot convert undefined or null to object';
     }
+
     let result = new Object(target);
+
     for (let i = 1; i < arguments.length; i++) {
         if (arguments[i] !== null && arguments[i] !== undefined) {
-
             for (let nextKey in arguments[i]) {
                 if (Object.prototype.hasOwnProperty.call(arguments[i], nextKey)) {
                     result[nextKey] = arguments[i][nextKey];
@@ -13,6 +15,7 @@ function assign(target) {
             }
         }
     }
+    
     return result;
 }
 
@@ -43,12 +46,12 @@ function extend(Child, Parent) {
     Child.superclass = Parent.prototype;
 }
 
-function Bot(paramsObj) {
+function Bot(paramsObj, type) {
     let _name = paramsObj.name,
         _speed = paramsObj.speed,
         _x = paramsObj.x,
         _y = paramsObj.y,
-        _type = paramsObj.type || 'Bot';
+        _type = type || 'Bot';
 
     const _defaultSpeed = paramsObj.speed;
 
@@ -98,21 +101,20 @@ Bot.prototype.showPosition = function () {
         .getCoordinates().y}.`;
 }
 
-Bot.prototype.move = function (direction, context) {
-    context = context || this;
+Bot.prototype.move = function (direction) {
     if (checkDirection(direction)) {
         switch (direction) {
             case 'up':
-                context.setCoordinates(context.getCoordinates().x, context.getCoordinates().y + context.getSpeed());
+                this.setCoordinates(this.getCoordinates().x, this.getCoordinates().y + this.getSpeed());
                 break;
             case 'down':
-                context.setCoordinates(context.getCoordinates().x, context.getCoordinates().y - context.getSpeed());
+                this.setCoordinates(this.getCoordinates().x, this.getCoordinates().y - this.getSpeed());
                 break;
             case 'right':
-                context.setCoordinates(context.getCoordinates().x + context.getSpeed(), context.getCoordinates().y);
+                this.setCoordinates(this.getCoordinates().x + this.getSpeed(), this.getCoordinates().y);
                 break;
             case 'left':
-                context.setCoordinates(context.getCoordinates().x - context.getSpeed(), context.getCoordinates().y);
+                this.setCoordinates(this.getCoordinates().x - this.getSpeed(), this.getCoordinates().y);
                 break;
             default:
                 throw 'direction can accept 1 of 4 possible directions (up, down, left, right)'
@@ -123,13 +125,33 @@ Bot.prototype.move = function (direction, context) {
 }
 
 function Racebot(paramsObj) {
-    this.previousDirection = '';
-    Racebot.superclass.constructor.call(this, paramsObj);
+
+    let _previousDirection = '';
+
+    Racebot.superclass.constructor.call(this, paramsObj, 'Racebot');
+
+    this.getPreviousDirection = function () {
+        return _previousDirection;
+    }
+
+    this.setPreviousDirection = function (direction) {
+        _previousDirection = direction;
+    }
 }
 
 function Speedbot(paramsObj) {
-    Speedbot.superclass.constructor.call(this, paramsObj);
-    this.engineLvl = 0;
+
+    let _turboDisable = false;
+
+    Speedbot.superclass.constructor.call(this, paramsObj, 'Speedbot');
+
+    this.getTurboDisable = function () {
+        return _turboDisable;
+    }
+
+    this.setTurboDisable = function (bool) {
+        _turboDisable = bool;
+    }
 }
 
 extend(Racebot, Bot);
@@ -137,13 +159,13 @@ extend(Speedbot, Bot);
 
 Racebot.prototype.move = function (direction) {
     if (checkDirection(direction)) {
-        if (direction !== this.previousDirection) {
+        if (direction !== this.getPreviousDirection()) {
             this.setSpeed(this.getDefaultSpeed());
-            this.previousDirection = direction;
+            this.setPreviousDirection(direction);
         } else {
             this.setSpeed(this.getSpeed() + 1);
         }
-        Racebot.superclass.move(direction, this);
+        Racebot.superclass.move.call(this, direction);
     } else {
         throw 'direction must be a String only.';
     }
@@ -151,13 +173,13 @@ Racebot.prototype.move = function (direction) {
 
 Speedbot.prototype.prepareEngine = function () {
     this.setSpeed(this.getSpeed() + 2);
-    this.turboDisable = false;
+    this.setTurboDisable(false);
 }
 
 Speedbot.prototype.move = function (direction) {
-    Speedbot.superclass.move(direction, this);
-    this.turboDisable = true;
-    if (this.turboDisable) {
+    Speedbot.superclass.move.call(this, direction);
+    this.setTurboDisable(true);
+    if (this.getTurboDisable()) {
         if (this.getSpeed() !== this.getDefaultSpeed()) {
             this.setSpeed(this.getSpeed() - 1);
         }
