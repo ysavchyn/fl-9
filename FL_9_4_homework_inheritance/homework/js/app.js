@@ -1,5 +1,5 @@
 function assign(target) {
-    
+
     if (target === null && target === undefined) {
         throw 'Cannot convert undefined or null to object';
     }
@@ -15,7 +15,7 @@ function assign(target) {
             }
         }
     }
-    
+
     return result;
 }
 
@@ -26,6 +26,7 @@ function checkDirection(direction) {
 function checkCoordinates(x, y) {
     if (typeof x === 'number' && !Number.isNaN(x) && Number.isFinite(x) &&
         typeof y === 'number' && !Number.isNaN(y) && Number.isFinite(y)) {
+
         return true;
     } else {
         return false;
@@ -117,7 +118,7 @@ Bot.prototype.move = function (direction) {
                 this.setCoordinates(this.getCoordinates().x - this.getSpeed(), this.getCoordinates().y);
                 break;
             default:
-                throw 'direction can accept 1 of 4 possible directions (up, down, left, right)'
+                throw 'direction can accept 1 of 4 possible directions (up, down, left, right)';
         }
     } else {
         throw 'direction must be a String only.';
@@ -135,7 +136,15 @@ function Racebot(paramsObj) {
     }
 
     this.setPreviousDirection = function (direction) {
-        _previousDirection = direction;
+        if (checkDirection(direction)) {
+            if (direction === 'up' || 'down' || 'left' || 'right') {
+                _previousDirection = direction;
+            } else {
+                throw 'direction can accept 1 of 4 possible directions (up, down, left, right)';
+            }
+        } else {
+            throw 'direction must be a String only.';
+        }
     }
 }
 
@@ -150,7 +159,11 @@ function Speedbot(paramsObj) {
     }
 
     this.setTurboDisable = function (bool) {
-        _turboDisable = bool;
+        if (typeof bool === 'boolean') {
+            _turboDisable = bool;
+        } else {
+            throw 'setTurboDisable argument must be only Boolean';
+        }
     }
 }
 
