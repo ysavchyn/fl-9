@@ -1,11 +1,9 @@
 function assign(target) {
-
     if (target === null && target === undefined) {
         throw 'Cannot convert undefined or null to object';
     }
 
     let result = new Object(target);
-
     for (let i = 1; i < arguments.length; i++) {
         if (arguments[i] !== null && arguments[i] !== undefined) {
             for (let nextKey in arguments[i]) {
@@ -126,7 +124,6 @@ Bot.prototype.move = function (direction) {
 }
 
 function Racebot(paramsObj) {
-
     let _previousDirection = '';
 
     Racebot.superclass.constructor.call(this, paramsObj, 'Racebot');
@@ -149,7 +146,6 @@ function Racebot(paramsObj) {
 }
 
 function Speedbot(paramsObj) {
-
     let _turboDisable = false;
 
     Speedbot.superclass.constructor.call(this, paramsObj, 'Speedbot');
