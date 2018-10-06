@@ -146,7 +146,6 @@ function Racebot(paramsObj) {
 }
 
 function Speedbot(paramsObj) {
-    let _turboDisable = false;
     Speedbot.superclass.constructor.call(this, paramsObj, 'Speedbot');
 }
 
