@@ -5,7 +5,6 @@ function* upper(items) {
         } catch (e) {
             yield null;
         }
-
     }
 }
 
