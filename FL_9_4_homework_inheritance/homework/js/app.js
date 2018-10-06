@@ -147,20 +147,7 @@ function Racebot(paramsObj) {
 
 function Speedbot(paramsObj) {
     let _turboDisable = false;
-
     Speedbot.superclass.constructor.call(this, paramsObj, 'Speedbot');
-
-    this.getTurboDisable = function () {
-        return _turboDisable;
-    }
-
-    this.setTurboDisable = function (bool) {
-        if (typeof bool === 'boolean') {
-            _turboDisable = bool;
-        } else {
-            throw 'setTurboDisable argument must be only Boolean';
-        }
-    }
 }
 
 extend(Racebot, Bot);
@@ -182,15 +169,11 @@ Racebot.prototype.move = function (direction) {
 
 Speedbot.prototype.prepareEngine = function () {
     this.setSpeed(this.getSpeed() + 2);
-    this.setTurboDisable(false);
 }
 
 Speedbot.prototype.move = function (direction) {
     Speedbot.superclass.move.call(this, direction);
-    this.setTurboDisable(true);
-    if (this.getTurboDisable()) {
-        if (this.getSpeed() !== this.getDefaultSpeed()) {
-            this.setSpeed(this.getSpeed() - 1);
-        }
+    if (this.getSpeed() !== this.getDefaultSpeed()) {
+        this.setSpeed(this.getSpeed() - 1);
     }
 }
