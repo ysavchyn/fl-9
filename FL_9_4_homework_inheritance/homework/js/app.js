@@ -90,7 +90,7 @@ function Bot(paramsObj, type) {
             _x = x;
             _y = y;
         } else {
-            throw 'x | y must be a Number only and >= 0.';
+            throw 'x | y must be a Number only.';
         }
     }
 }
