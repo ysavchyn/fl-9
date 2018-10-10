@@ -12,7 +12,7 @@
 
 <body>
     <main class="main">
-        <div id="data"></div>
+        <div id="info"></div>
         <form id="main-form">
             <label for="latitude">Latitude:</label>
             <input type="text" class="input-primary" id="latitude">
@@ -21,19 +21,13 @@
             <button type="submit" class="button track-button" id="track">Track</button>
         </form>
 
-        <div class="loading-wrapper vibrate" id="loading">
+        <div class="loading-wrapper turbulence" id="loading">
             <div class="loading-icon">Loading</div>
         </div>
 
-        <div id="in-water">
-            <h1>In the water</h1>
-        </div>
+        <div id="location"></div>
 
-        <div id="on-earth">
-            <h1>On earth</h1>
-        </div>
-        
-        <button type="reset" class="button reset-button" id="reset">Again</button>
+        <button type="reset" class="button reset-button blur-in" id="reset">Again</button>
 
     </main>
 
