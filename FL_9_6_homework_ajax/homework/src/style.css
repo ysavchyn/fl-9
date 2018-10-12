@@ -28,23 +28,25 @@ main {
 #main-form {
     position: fixed;
     top: 50%;
+    left: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    -webkit-transform: translate(0px, -93px);
-    transform: translate(0px, -93px);
+    -webkit-transform: translate(-50%, -93px);
+    transform: translate(-50%, -93px);
 }
 
 .location-wrapper {
     position: fixed;
     top: 50%;
+    left: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    -webkit-transform: translate(0px, -93px);
-    transform: translate(0px, -93px);
+    -webkit-transform: translate(-50%, -93px);
+    transform: translate(-50%, -93px);
 }
 
 .turbulence {
@@ -116,31 +118,31 @@ main {
 
 @-webkit-keyframes animate {
     0% {
-        background-position: left 0 top 70px;
+        background-position: left 0 top -20%;
     }
     40% {
-        background-position: left 800px top -50px;
+        background-position: left 150% top 0;
     }
     80% {
-        background-position: left 1800px top -50px;
+        background-position: left 0% top -20%;
     }
     100% {
-        background-position: left 2400px top 75px;
+        background-position: left -150% top 0;
     }
 }
 
 @keyframes animate {
     0% {
-        background-position: left 0 top 70px;
+        background-position: left 0 top -20%;
     }
     40% {
-        background-position: left 800px top -50px;
+        background-position: left 150% top 0;
     }
     80% {
-        background-position: left 1800px top -50px;
+        background-position: left 0% top -20%;
     }
     100% {
-        background-position: left 2400px top 75px;
+        background-position: left -150% top 0;
     }
 }
 

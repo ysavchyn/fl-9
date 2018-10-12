@@ -56,10 +56,10 @@ trackButton.onclick = function () {
 
         if (parsedResponse.water) {
             idLocation.className = 'in-water blur-in';
-            idLocation.firstElementChild.innerHTML = 'In the water';
+            idLocation.firstElementChild.innerHTML = 'Water';
         } else {
             idLocation.className = 'on-earth blur-in';
-            idLocation.firstElementChild.innerHTML = 'On earth';
+            idLocation.firstElementChild.innerHTML = 'Land';
         }
 
         info.className = 'blur-in';
@@ -76,7 +76,7 @@ trackButton.onclick = function () {
         }
 
         idLocation.className = 'error blur-in';
-        idLocation.firstElementChild.innerHTML = `E: ${status}`;
+        idLocation.firstElementChild.innerHTML = `E${status}`;
         resetButton.style.display = 'block';
     });
 
