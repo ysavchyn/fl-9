@@ -104,7 +104,7 @@ module.exports = {
                 writeJsonToFile('../db/data.json', cars);
 
                 return res.status(200).json({
-                    message: 'The car has been successfully removed'
+                    "message": "The car has been successfully removed"
                 });
             }
         }
