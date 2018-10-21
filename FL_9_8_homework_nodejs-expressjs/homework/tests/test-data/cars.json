@@ -1,0 +1,184 @@
+[
+  {
+    "id": 5,
+    "brand": "Toyota",
+    "model": "Corolla",
+    "engineVolume": 1.6,
+    "year": 2001
+  },
+  {
+    "id": 6,
+    "brand": "GMC",
+    "model": "Sierra 2500",
+    "engineVolume": 4.8,
+    "year": 2006
+  },
+  {
+    "id": 7,
+    "brand": "Aston Martin",
+    "model": "DB9",
+    "engineVolume": 1.9,
+    "year": 2005
+  },
+  {
+    "id": 8,
+    "brand": "Hyundai",
+    "model": "Equus",
+    "engineVolume": 1.9,
+    "year": 2013
+  },
+  {
+    "id": 9,
+    "brand": "Chevrolet",
+    "model": "Express 3500",
+    "engineVolume": 3.5,
+    "year": 2008
+  },
+  {
+    "id": 10,
+    "brand": "Chevrolet",
+    "model": "Cavalier",
+    "engineVolume": 2.5,
+    "year": 1995
+  },
+  {
+    "id": 11,
+    "brand": "Mercury",
+    "model": "Capri",
+    "engineVolume": 4.8,
+    "year": 1993
+  },
+  {
+    "id": 12,
+    "brand": "Mercedes-Benz",
+    "model": "E-Class",
+    "engineVolume": 5.4,
+    "year": 2008
+  },
+  {
+    "id": 13,
+    "brand": "Porsche",
+    "model": "Boxster",
+    "engineVolume": 2.9,
+    "year": 2001
+  },
+  {
+    "id": 14,
+    "brand": "Dodge",
+    "model": "Viper",
+    "engineVolume": 5.3,
+    "year": 2010
+  },
+  {
+    "id": 15,
+    "brand": "Volkswagen",
+    "model": "Golf",
+    "engineVolume": 5.6,
+    "year": 2012
+  },
+  {
+    "id": 16,
+    "brand": "Porsche",
+    "model": "911",
+    "engineVolume": 1.6,
+    "year": 2001
+  },
+  {
+    "id": 17,
+    "brand": "Toyota",
+    "model": "Corolla",
+    "engineVolume": 4.1,
+    "year": 1992
+  },
+  {
+    "id": 18,
+    "brand": "Volkswagen",
+    "model": "Jetta",
+    "engineVolume": 4.1,
+    "year": 1997
+  },
+  {
+    "id": 19,
+    "brand": "Chevrolet",
+    "model": "SSR",
+    "engineVolume": 5.8,
+    "year": 2003
+  },
+  {
+    "id": 20,
+    "brand": "Subaru",
+    "model": "Tribeca",
+    "engineVolume": 4.1,
+    "year": 2007
+  },
+  {
+    "id": 21,
+    "brand": "GMC",
+    "model": "1500",
+    "engineVolume": 5.3,
+    "year": 1998
+  },
+  {
+    "id": 22,
+    "brand": "Acura",
+    "model": "MDX",
+    "engineVolume": 5.2,
+    "year": 2001
+  },
+  {
+    "id": 23,
+    "brand": "Saturn",
+    "model": "Astra",
+    "engineVolume": 4,
+    "year": 2008
+  },
+  {
+    "id": 24,
+    "brand": "Toyota",
+    "model": "Land Cruiser",
+    "engineVolume": 2.3,
+    "year": 2005
+  },
+  {
+    "id": 25,
+    "brand": "Subaru",
+    "model": "Impreza",
+    "engineVolume": 5.4,
+    "year": 1994
+  },
+  {
+    "id": 26,
+    "brand": "Lexus",
+    "model": "GS",
+    "engineVolume": 1.8,
+    "year": 2010
+  },
+  {
+    "id": 27,
+    "brand": "Maserati",
+    "model": "Karif",
+    "engineVolume": 2.7,
+    "year": 1990
+  },
+  {
+    "id": 28,
+    "brand": "Cadillac",
+    "model": "Escalade",
+    "engineVolume": 3.8,
+    "year": 2009
+  },
+  {
+    "id": 29,
+    "brand": "Mazda",
+    "model": "MX-6",
+    "engineVolume": 4.7,
+    "year": 1996
+  },
+  {
+    "id": 30,
+    "brand": "Land Rover",
+    "model": "Defender",
+    "engineVolume": 1.9,
+    "year": 1993
+  }
+]

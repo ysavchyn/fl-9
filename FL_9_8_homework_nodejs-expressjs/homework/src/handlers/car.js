@@ -1,3 +1,6 @@
+/*Attention
+The data is read into 'cars' object immediately after starting the server (better (in this case), i think, than reading and parsing json every time after each request separately with sync), so the tests will be unsuccessful after the first time. You must change the data in data.json after each run of the 'npm test' (before each next start of the server)*/
+
 'use strict';
 
 const fs = require('fs');
@@ -99,7 +102,7 @@ module.exports = {
 
     car_id_deleteHandler: (req, res) => {
         for (let i = 0; i < cars.length; i++) {
-            if (cars[i].id == Number(req.params.id)) {
+            if (cars[i].id === Number(req.params.id)) {
                 cars.splice(i, 1);
                 writeJsonToFile('../db/data.json', cars);
 
