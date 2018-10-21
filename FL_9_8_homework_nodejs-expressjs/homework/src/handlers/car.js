@@ -1,5 +1,7 @@
 /*Attention
-The data is read into 'cars' object immediately after starting the server (better (in this case), i think, than reading and parsing json every time after each request separately with sync), so the tests will be unsuccessful after the first time. You must change the data in data.json after each run of the 'npm test' (before each next start of the server)*/
+The data is read into 'cars' object immediately after starting the server (better (in this case), i think, than reading and parsing json every
+time after each request separately with sync), so the tests will be unsuccessful after the first time. You should change the data in data.json
+after each run of the 'npm test' (before each next start of the server)*/
 
 'use strict';
 
