@@ -1,11 +1,11 @@
 /*Attention
-The data is read into 'cars' object immediately after starting the server (better (in this case), i think, than reading and parsing json every
-time after each request separately with sync), so the tests will be unsuccessful after the first time. You should change the data in data.json
-after each run of the 'npm test' (before each next start of the server)*/
-
+The data is read to 'cars' object immediately after start server (better, i think, than read and parse json every time after each request
+separately with sync), so the tests will be unsuccessful after the first time. You must change the data in data.json after each start 'npm
+test'*/
 'use strict';
 
-const fs = require('fs');
+const fs = require('fs'),
+    path = require('path');
 let cars = {};
 
 const sortByProperty = property => {
@@ -27,7 +27,7 @@ const nullUnderfinedCheck = value => {
     return value !== null && value !== undefined;
 }
 
-fs.readFile('../db/data.json', (err, data) => {
+fs.readFile(path.resolve(__dirname + '/../../db/data.json'), (err, data) => {
     if (err) {
         return console.error(err);
     }
@@ -55,7 +55,7 @@ module.exports = {
 
         cars.push(newCar);
         cars.sort(sortByProperty('id'));
-        writeJsonToFile('../db/data.json', cars);
+        writeJsonToFile(path.resolve(__dirname + '/../../db/data.json'), cars);
 
         return res.status(201).json(newCar);
     },
@@ -91,7 +91,7 @@ module.exports = {
                 if (nullUnderfinedCheck(req.body.year)) {
                     cars[i].year = Number(req.body.year);
                 }
-                writeJsonToFile('../db/data.json', cars);
+                writeJsonToFile(path.resolve(__dirname + '/../../db/data.json'), cars);
 
                 return res.status(200).json(cars[i]);
             }
@@ -106,7 +106,7 @@ module.exports = {
         for (let i = 0; i < cars.length; i++) {
             if (cars[i].id === Number(req.params.id)) {
                 cars.splice(i, 1);
-                writeJsonToFile('../db/data.json', cars);
+                writeJsonToFile(path.resolve(__dirname + '/../../db/data.json'), cars);
 
                 return res.status(200).json({
                     "message": "The car has been successfully removed"

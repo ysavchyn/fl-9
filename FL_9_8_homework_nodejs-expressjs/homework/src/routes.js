@@ -1,4 +1,5 @@
-const handlers = require('./handlers/car');
+const path = require('path'),
+      handlers = require(path.resolve(__dirname + '/handlers/car'));
 
 module.exports = app => {
     app.route('/car')
